@@ -34,4 +34,8 @@ public class dwq {
         System.out.println("=====================");
     }
 
+    public static void hi() {
+        System.out.println("hi");
+    }
+
 }
