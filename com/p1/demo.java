@@ -35,9 +35,11 @@ public class demo {
         a.add(b1);
         a.add(b2);
         a.add(b3);
-        Iterator it = a.iterator();
+        Iterator<book> it = a.iterator();
         while (it.hasNext()) {
             System.out.println(it.next());
         }
+
+        int[] array = new int[] { 11, 2 };
     }
 }

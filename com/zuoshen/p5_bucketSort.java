@@ -1,5 +1,6 @@
 package com.zuoshen;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class p5_bucketSort {
@@ -28,6 +29,7 @@ public class p5_bucketSort {
                 break;
             }
         }
+        ArrayList<Integer> a = new ArrayList<>();
         System.out.println("success!");
 
     }
