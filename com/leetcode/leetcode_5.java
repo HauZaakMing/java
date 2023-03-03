@@ -3,7 +3,7 @@ package com.leetcode;
 import java.util.Arrays;
 
 public class leetcode_5 {
-    // 最长回文子串，maracher算法
+    // 最长回文子串，manacher算法
     public String longestPalindrome(String s) {
         s = s.replace("", "*");
         int[] lp = new int[s.length()];
@@ -27,7 +27,10 @@ public class leetcode_5 {
             }
             int p = p2;
             while (--p > i) {
-                lp[p] = Math.min(lp[2 * i - p], (p2 - p) * 2 + 1);
+                int temp = Math.min(lp[2 * i - p], (p2 - p) * 2 + 1);
+                if (temp > lp[p]) {
+                    lp[p] = temp;
+                }
             }
 
         }
