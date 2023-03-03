@@ -2,6 +2,7 @@ package com.leetcode;
 
 import java.util.LinkedList;
 
+// 2023.3.3
 public class leetcode_239 {
 
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -9,6 +10,7 @@ public class leetcode_239 {
         // 双端队列仅会保存当前窗口的最大值和，该最大值后来的数
         // 如果后来的数很大，那直接可以将前面较小的挤出去，因为他们肯定没法成为窗口最大值
         // 小的则先存着，有可能大的数字走掉后，他可能会成为大的
+
         int[] ans = new int[nums.length - k + 1];
         LinkedList<Integer> DHeadList = new LinkedList<>();
         int r = 0;
