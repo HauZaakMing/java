@@ -44,7 +44,7 @@ public class leetcode_2570 {
 
     public static void main(String[] args) {
         leetcode_2570 demo = new leetcode_2570();
-        demo.mergeArrays(null, null)
+        demo.mergeArrays(null, null);
     }
 
 }
