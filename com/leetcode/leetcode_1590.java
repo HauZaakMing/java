@@ -3,6 +3,7 @@ package com.leetcode;
 import java.util.HashMap;
 
 public class leetcode_1590 {
+    //看了题解才能解决
     public int minSubarray(int[] nums, int p) {
         //求得x为总余值
         int x = 0;
