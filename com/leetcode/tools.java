@@ -1,8 +1,8 @@
 package com.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.sun.source.tree.Tree;
+
+import java.util.*;
 
 public class tools {
 
@@ -37,6 +37,42 @@ public class tools {
 
         }
         return pl;
+    }
+
+    public static TreeNode String2BTree(String s){
+        String []splits = s.split(",");
+        TreeNode root = new TreeNode(Integer.parseInt(splits[0]));
+        linkNode(root,splits,1);
+
+        return root;
+
+    }
+
+    public static void linkNode(TreeNode root,String []splits,int curpos){
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()&&curpos<splits.length){
+            TreeNode curNode = queue.poll();
+            if(!splits[curpos].equals("null")){
+                TreeNode l = new TreeNode(Integer.parseInt(splits[curpos]));
+                queue.add(l);
+                curNode.left = l;
+            }
+            curpos = curpos+1;
+            if(curpos<splits.length&&!splits[curpos].equals("null")){
+                TreeNode r = new TreeNode(Integer.parseInt(splits[curpos]));
+                queue.add(r);
+                curNode.right = r;
+            }
+            curpos = curpos+1;
+        }
+
+
+    }
+
+
+    public static void main(String[] args) {
+        String2BTree("10,5,-3,3,2,null,11,3,-2,null,1");
     }
 
 
