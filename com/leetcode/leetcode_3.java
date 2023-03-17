@@ -3,7 +3,7 @@ package com.leetcode;
 import java.util.HashMap;
 
 public class leetcode_3 {
-    public int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstring1(String s) {
         if (s.length() == 0) {
             return 0;
         }
@@ -37,8 +37,27 @@ public class leetcode_3 {
         return ans;
     }
 
+    public int lengthOfLongestSubstring(String s) {
+        char[] chars = s.toCharArray();
+        HashMap<Character,Integer> map = new HashMap<>();
+
+        int left = 0;
+        int ans = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if(!map.containsKey(chars[i])){
+                map.put(chars[i],i);
+            }else{
+                left = Math.max(left,map.get(chars[i])+1);
+                map.put(chars[i],i);
+            }
+            ans = Math.max(ans,i-left+1);
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         leetcode_3 demo = new leetcode_3();
-        demo.lengthOfLongestSubstring("abcabcbb");
+//        demo.lengthOfLongestSubstring("abcabcbb");
     }
 }
