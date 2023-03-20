@@ -70,6 +70,53 @@ public class tools {
 
     }
 
+    //数位dp模板
+    public int[] dp;
+    // pos 当前位置
+    // mask 一些约束，或者需要往下传递的一些参数
+    //isLimited 当前是否受原数字约束
+    //isStart 是否已经开始摆数字
+    public int findNoBigger(int pos,int curNum,boolean isLimited,boolean isStart,String number,HashSet<Integer> digs){
+        //给定推出条件
+        if(pos==number.length()){
+            return isStart?1:0;
+        }
+
+        if(!isLimited&&isStart&&dp[pos]!=0){
+            return dp[pos];
+        }
+
+        //给出上下界
+        int cur = Integer.parseInt(number.substring(pos,pos+1));
+        int upLimit = isLimited?cur:9;
+        int lowLimit = isStart?0:1;
+
+        //开始计数
+        int count = 0;
+        for (int i = lowLimit; i <= upLimit ; i++) {
+            int tempNum = curNum+(int)(i*Math.pow(10,number.length()-pos-1));
+            if(tempNum>Integer.parseInt(number)){
+                break;
+            }else{
+                if(digs.contains(i)){
+                    count+=findNoBigger(pos+1,tempNum,isLimited&&i==cur,true,number,digs);
+                }else{
+                    continue;
+                }
+
+            }
+        }
+
+        if(!isStart){
+            count+=findNoBigger(pos+1,0,false,false,number,digs);
+        }
+
+        if(!isLimited&&isStart){
+            dp[pos] = count;
+        }
+        return count;
+    }
+
 
     public static void main(String[] args) {
         String2BTree("10,5,-3,3,2,null,11,3,-2,null,1");
