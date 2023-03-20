@@ -5,8 +5,24 @@ import java.util.regex.Pattern;
 public class q_004 {
     public static int ans = 0;
     //剑指 Offer II 004. 只出现一次的数字
-    public int singleNumber(int[] nums) {
+    public int singleNumber1(int[] nums) {
         partition(nums,0, nums.length-1);
+        return ans;
+    }
+
+    public int singleNumber(int[] nums) {
+        int ans = 0;
+        for (int i = 0; i < 32; i++) {
+            int total = 0;
+            for (int num:
+                 nums) {
+                total+=(num>>i)&1;
+            }
+            if(total%3!=0){
+                ans = ans|(1<<i);
+            }
+        }
+
         return ans;
     }
 
