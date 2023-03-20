@@ -2,6 +2,9 @@ package com.knowledgeTest;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class Test1 {
 
     @Test
@@ -17,5 +20,24 @@ public class Test1 {
         ClassLoader classLoader = aClass.getClassLoader();
 //        classLoader.loadClass()
         System.out.println(classLoader);
+    }
+    @Test
+    public void StringTest(){
+        String a = "abc";
+        String b = "a"+"bc";
+        System.out.println(a==b);
+
+
+    }
+    @Test
+    public void CollectionTset(){
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        Integer max = Collections.max(list);
+        int i = Collections.binarySearch(list, 1);
+        Collections.reverse(list);
+        System.out.println(list);
     }
 }
