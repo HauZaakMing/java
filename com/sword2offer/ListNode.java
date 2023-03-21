@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.sword2offer;
 
 public class ListNode {
     int val;
