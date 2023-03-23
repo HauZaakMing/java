@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Test1 {
 
@@ -30,7 +32,7 @@ public class Test1 {
 
     }
     @Test
-    public void CollectionTset(){
+    public void CollectionTset() {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
@@ -39,5 +41,10 @@ public class Test1 {
         int i = Collections.binarySearch(list, 1);
         Collections.reverse(list);
         System.out.println(list);
+    }
+
+    public void HashMapSecurity(){
+        HashMap<Integer,Integer> map = new HashMap<>();
+        ConcurrentHashMap<Integer,Integer> map1 = new ConcurrentHashMap<>();
     }
 }
