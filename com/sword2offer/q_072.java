@@ -6,26 +6,26 @@ public class q_072 {
         if(x==0){
             return 0;
         }
-        int left = 1;
-        int right = x;
+        long left = 1;
+        long right = x;
         while(left<right){
-            int mid = (left+right)>>1;
+            long mid = left+((right-left)>>1);
             if(mid*mid>x){
                 right = mid-1;
             } else if (mid*mid<x) {
                 left = mid+1;
             }else{
-                return mid;
+                return (int)mid;
             }
         }
         while (right*right>x){
             right--;
         }
-        return right;
+        return (int)right;
     }
 
     public static void main(String[] args) {
         q_072 demo = new q_072();
-        demo.mySqrt(40);
+        demo.mySqrt(2147395599);
     }
 }
