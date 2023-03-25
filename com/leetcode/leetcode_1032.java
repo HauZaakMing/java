@@ -25,7 +25,7 @@ public class leetcode_1032 {
     }
 }
 
-class StreamChecker1 {
+class StreamChecker {
     HashMap<Character, HashSet<String>> map = new HashMap<>();
     String curs;
     int maxLen = 0;
@@ -71,3 +71,26 @@ class StreamChecker1 {
 
 }
 
+//class StreamChecker {
+//
+//    public StreamChecker(String[] words) {
+//        //先把前缀树建起来
+//        prefixTreeNode root = new prefixTreeNode();
+//
+//
+//    }
+//
+//    public boolean query(char letter) {
+//
+//    }
+//}
+
+class prefixTreeNode{
+    prefixTreeNode next[];
+    boolean end;
+
+    public prefixTreeNode() {
+        next = new prefixTreeNode[26];
+        end = false;
+    }
+}
