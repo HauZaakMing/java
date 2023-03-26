@@ -16,28 +16,28 @@ public class leetcode_84 {
             if(stack.isEmpty()){
                 stack.push(i);
             }else{
-                while (!stack.isEmpty()&&heights[i]<heights[stack.peekLast()]){
-                    rP[stack.pollLast()] = i-1;
+                while (!stack.isEmpty()&&heights[i]<heights[stack.peekFirst()]){
+                    rP[stack.pollFirst()] = i-1;
                 }
                 stack.push(i);
             }
         }
         while (!stack.isEmpty()){
-            rP[stack.pollLast()] = heights.length-1;
+            rP[stack.pollFirst()] = heights.length-1;
         }
 
         for (int i = heights.length-1; i >= 0; i--) {
             if(stack.isEmpty()){
                 stack.push(i);
             }else{
-                while (!stack.isEmpty()&&heights[i]<heights[stack.peekLast()]){
-                    lP[stack.pollLast()] = i+1;
+                while (!stack.isEmpty()&&heights[i]<heights[stack.peekFirst()]){
+                    lP[stack.pollFirst()] = i+1;
                 }
                 stack.push(i);
             }
         }
         while (!stack.isEmpty()){
-            lP[stack.pollLast()] = 0;
+            lP[stack.pollFirst()] = 0;
         }
         int max = 0;
         for (int i = 0; i < heights.length; i++) {
