@@ -2,7 +2,7 @@ package com.leetcode;
 
 public class leetcode_64 {
 
-    public int minPathSum(int[][] grid) {
+    public int minPathSum1(int[][] grid) {
         int [][]dp = new int[grid.length][grid[0].length];
         int l = grid.length;
         int w = grid[0].length;
@@ -19,6 +19,10 @@ public class leetcode_64 {
             }
         }
         return dp[l-1][w-1];
+    }
+
+    public int minPathSum(int[][] grid) {
+
     }
 
     public static void main(String[] args) {

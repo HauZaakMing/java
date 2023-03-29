@@ -7,7 +7,7 @@ import java.util.Stack;
 public class leetcode_84 {
 
     //84. 柱状图中最大的矩形
-    public int largestRectangleArea(int[] heights) {
+    public int largestRectangleArea1(int[] heights) {
 
         int []lP = new int[heights.length];
         int []rP = new int[heights.length];
@@ -46,8 +46,33 @@ public class leetcode_84 {
         return max;
     }
 
+    public int largestRectangleArea(int[] heights) {
+
+        Deque<Integer> stack = new ArrayDeque<>();
+        int newHeights[] = new int[heights.length+2];
+        newHeights[0] = 0;
+        newHeights[newHeights.length-1] = 0;
+        System.arraycopy(heights,0,newHeights,1,heights.length);
+        heights = newHeights;
+        stack.addLast(0);
+        int ans = 0;
+        for (int i = 1; i < heights.length; i++) {
+
+            while (heights[i]<heights[stack.peekLast()]){
+                int cur_height = heights[stack.pollLast()];
+                int cur_width = i-stack.peekLast()-1;
+                if(cur_height*cur_width>ans){
+                    ans = cur_height*cur_width;
+                }
+            }
+            stack.addLast(i);
+        }
+        return ans;
+    }
+
+
     public static void main(String[] args) {
         leetcode_84 demo = new leetcode_84();
-        demo.largestRectangleArea(new int[]{2,1,5,6,2,3});
+        demo.largestRectangleArea(new int[]{2,4});
     }
 }
