@@ -46,5 +46,28 @@ public class Test1 {
     public void HashMapSecurity(){
         HashMap<Integer,Integer> map = new HashMap<>();
         ConcurrentHashMap<Integer,Integer> map1 = new ConcurrentHashMap<>();
+
+
+    }
+
+    //ArrayList的删除需要后面全部前移，继续按序号检索就会漏查
+    @Test
+    public void ArrayListCheck(){
+        ArrayList<Integer> a = new ArrayList<>();
+
+        for (int i = 0; i < 100; i++) {
+            a.add(i);
+
+        }
+
+        for (int i = 0; i < a.size(); i++) {
+            int temp = a.get(i);
+            System.out.println(temp);
+            if(i%10==0){
+
+                a.remove(i);
+            }
+        }
+        System.out.println(1);
     }
 }
