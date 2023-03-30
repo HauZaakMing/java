@@ -22,7 +22,21 @@ public class leetcode_64 {
     }
 
     public int minPathSum(int[][] grid) {
+        int dp[] = new int[grid[0].length+1];
+        for (int i = 0; i < grid[0].length; i++) {
+            dp[i+1] = dp[i]+grid[0][i];
+        }
 
+        for (int i = 1; i < grid.length; i++) {
+            for (int j = 1; j < grid[0].length+1 ; j++) {
+                if(j==1){
+                    dp[j] = dp[j]+grid[i][j-1];
+                }else{
+                    dp[j] = Math.min(dp[j],dp[j-1])+grid[i][j-1];
+                }
+            }
+        }
+        return dp[dp.length-1];
     }
 
     public static void main(String[] args) {
