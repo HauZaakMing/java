@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.TreeSet;
 
 public class leetcode_1637 {
@@ -24,6 +26,15 @@ public class leetcode_1637 {
     }
 
     public int maxWidthOfVerticalArea(int[][] points) {
-
+        Arrays.sort(points,(Comparator.comparingInt(o -> o[0])));
+        int pre = points[0][0];
+        int ans = 0;
+        for (int i = 1; i < points.length; i++) {
+            if(points[i][0]-pre>ans){
+                ans = points[i][0]-pre;
+            }
+            pre = points[i][0];
+        }
+        return ans;
     }
 }
